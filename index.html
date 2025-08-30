@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Escape Game Site</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>My Escape Game Site</h1>
+    <nav>
+      <button class="tab-button active" data-tab="about">About</button>
+      <button class="tab-button" data-tab="game1">Game 1</button>
+      <button class="tab-button" data-tab="game2">Game 2</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 自己紹介タブ -->
+    <div id="about" class="tab-content active">
+      <h2>About This Site</h2>
+      <p>Welcome! This is a collection of my escape games.</p>
+    </div>
+
+    <!-- ゲーム1タブ -->
+    <div id="game1" class="tab-content">
+      <h2>Escape Game 1</h2>
+      <iframe src="game1/index.html" width="960" height="600"></iframe>
+    </div>
+
+    <!-- ゲーム2タブ -->
+    <div id="game2" class="tab-content">
+      <h2>Escape Game 2</h2>
+      <iframe src="game2/index.html" width="960" height="600"></iframe>
+    </div>
+  </main>
+
+  <script>
+    // タブ切り替え用スクリプト
+    const buttons = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        // ボタンのactive切り替え
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // コンテンツ切り替え
+        contents.forEach(c => c.classList.remove("active"));
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
