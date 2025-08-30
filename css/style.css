@@ -9,22 +9,32 @@ header h1 {
 }
 
 nav {
-  margin: 20px 0;
+  display: flex;        /* 横並びにする */
+  padding: 0;
+  margin: 0;
 }
 
 .tab-button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 8px;
-  background: #ddd;
+  flex: 1;              /* 均等幅にする */
+  border: 1px solid #007bff;  /* 境界線あり */
+  border-right: none;         /* 最後のボタン以外は右の線を消す */
+  background: #007bff;
+  color: white;
+  padding: 10px 0;
   cursor: pointer;
+  text-align: center;
 }
 
 .tab-button.active {
-  background: #007bff;
-  color: white;
+  background: #0056b3;  /* 選択中のタブの色 */
 }
+
+/* 最後のボタンだけ右の線を出す */
+.tab-button:last-child {
+  border-right: 1px solid #007bff;
+}
+
+
 
 .tab-content {
   display: none;
@@ -39,3 +49,4 @@ iframe {
   border: none;
   margin-top: 10px;
 }
+
